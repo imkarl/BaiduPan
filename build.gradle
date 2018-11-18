@@ -1,0 +1,51 @@
+group 'cn.imkarl.baidupan'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.3.10'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'kotlin'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
+    maven { url "http://dl.bintray.com/rouchuan/maven" }
+    maven { url "http://maven.teamdev.com/repository/products" }
+    maven { url 'http://dl.bintray.com/kotlin/exposed' }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    // rxjava
+    compile 'io.reactivex.rxjava2:rxjava:2.1.2'
+    // http
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    // sql
+    implementation 'com.h2database:h2:1.4.196'
+    implementation 'org.jetbrains.exposed:exposed:0.10.2'
+    // common
+    compile 'org.jooq:joor:0.9.6'
+    compile 'org.bouncycastle:bcprov-jdk16:1.45'
+    compile 'com.google.guava:guava:26.0-jre'
+    // browser
+    compile 'com.teamdev.jxbrowser:jxbrowser-cross-platform:6.21'
+    compile 'com.teamdev.jxbrowser:jxbrowser-win64:6.21'
+    compile 'com.teamdev.jxbrowser:jxbrowser-win32:6.21'
+    compile 'com.teamdev.jxbrowser:jxbrowser-mac:6.21'
+    compile 'com.teamdev.jxbrowser:jxbrowser-linux64:6.21'
+}
